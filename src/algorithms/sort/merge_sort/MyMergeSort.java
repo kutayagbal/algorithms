@@ -1,4 +1,4 @@
-package algorithms.sort.mergesort;
+package algorithms.sort.merge_sort;
 
 public class MyMergeSort {
 
@@ -37,7 +37,8 @@ public class MyMergeSort {
 		int rightSize = rightArr.length;
 		int leftSize = leftArr.length;
 
-		int[] mergedArr = new int[rightSize + leftSize];
+		int totalSize = rightSize + leftSize;
+		int[] mergedArr = new int[totalSize];
 
 		int mergeIndex = 0;
 		int leftIndex = 0;
@@ -56,10 +57,10 @@ public class MyMergeSort {
 
 		if (rightIndex >= rightSize) {
 			// copy remaining in left arr
-			System.arraycopy(leftArr, leftIndex, mergedArr, mergeIndex, rightSize + leftSize - mergeIndex);
+			System.arraycopy(leftArr, leftIndex, mergedArr, mergeIndex, totalSize - mergeIndex);
 		} else if (leftIndex >= leftSize) {
 			// copy remaining in right arr
-			System.arraycopy(rightArr, rightIndex, mergedArr, mergeIndex, rightSize + leftSize - mergeIndex);
+			System.arraycopy(rightArr, rightIndex, mergedArr, mergeIndex, totalSize - mergeIndex);
 		}
 
 		return mergedArr;
